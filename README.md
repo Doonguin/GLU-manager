@@ -8,4 +8,6 @@ De plannen zijn als volgt:
 - Absentie per les
 - Command om je rooster te checken  
   
-## Ta
+## Taakverdeling
+Iedereen kan aan elk command werken. 
+Meld even aan welk command je werkt in de discord.
