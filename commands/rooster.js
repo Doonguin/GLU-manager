@@ -1,7 +1,8 @@
 // Import libraries
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 
-var rooster = "test";
+const rooster = "test";
+
 // Build slash command
 module.exports = {
   data: new SlashCommandBuilder()
@@ -9,6 +10,17 @@ module.exports = {
     .setDescription("vraag je weekrooster op"),
 
   async execute(interaction) {
-    await interaction.reply(rooster);
+    await interaction.reply({
+      content: rooster,
+      ephemeral: true,
+      embeds: [
+        {
+          type: "rich",
+          title: `rooster`,
+          description: `rooster table`,
+          color: 0x00ffff,
+        },
+      ],
+    });
   },
 };
