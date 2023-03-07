@@ -1,13 +1,14 @@
 // Import libraries
 const { SlashCommandBuilder } = require("discord.js");
 
+var rooster = "test";
 // Build slash command
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("test")
-    .setDescription("dit is een test"),
+    .setName("rooster")
+    .setDescription("vraag je weekrooster op"),
 
   async execute(interaction) {
-    await interaction.reply("tost");
+    await interaction.reply(rooster);
   },
 };
