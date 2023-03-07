@@ -1,5 +1,5 @@
 // Import libraries
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 
 // Build slash command
 const embet = {
@@ -31,6 +31,6 @@ module.exports = {
   data: new SlashCommandBuilder().setName("help").setDescription("hulp nodig?"),
 
   async execute(interaction) {
-    await interaction.reply(embet);
+    await interaction.reply({ embeds: [embet] });
   },
 };
