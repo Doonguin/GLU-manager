@@ -23,18 +23,13 @@ module.exports = {
                 option.setName('leerling')
                     .setDescription('Je leerling nummer')
                     .setRequired(true)
-            )
-        .addStringOption(option =>
-                option.setName('email')
-                    .setDescription('Je GLU email')
-                    .setRequired(true)
             ),
 
     async execute(interaction) {
         const naam = interaction.options.getString('naam').toLowerCase();
         const klas = interaction.options.getString('klas').toUpperCase();
         const leerlingnummer = interaction.options.getInteger('leerling');
-        const email = interaction.options.getString('email').toLowerCase();
+        const email = `${leerlingnummer}@student.glu.nl`;
 
         fs.readFile(path, 'utf8', (err, res) => {
             if (err) { console.log(err); return }
@@ -59,15 +54,15 @@ module.exports = {
             .setColor('Yellow')
             .setDescription('De volgende gegevens zijn opgeslagen')
             .addFields([
-                { name: 'Naam', value: `${naam}` },
-                { name: 'Klas', value: `${klas}` },
-                { name: 'Leerling nummer', value: `${leerlingnummer}` },
-                { name: 'School email', value: `${email}` }
-            ]);
+                { name: 'Naam', value: `${naam}`, inline: true },
+                { name: 'Klas', value: `${klas}`, inline: true },
+                { name: 'Leerling nummer', value: `${leerlingnummer}`, inline: true },
+                { name: 'School email', value: `${email}`, inline: true }
+            ])
+            .setFooter({ text: 'Iets niet goed? Gebruik het command nog een keer om het aan te passen!' });
 
         interaction.reply({ 
-            embeds: [ embedKoppel ],
-            ephemeral: true
+            embeds: [ embedKoppel ]
         });
     }
 }
