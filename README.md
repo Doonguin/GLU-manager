@@ -11,7 +11,7 @@ De plannen zijn als volgt:
 ## Taakverdeling
 Iedereen kan aan elk command werken. 
 Meld even aan welk command je werkt in de discord.
-=======
+---
 
 | Dagen en Datum | Tygo van Zon | Cas Meijer | Prosper van den Berg |
 | ------------- | ------------- | ------------- | ------------- |
