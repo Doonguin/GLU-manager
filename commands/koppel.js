@@ -26,7 +26,7 @@ module.exports = {
             ),
 
     async execute(interaction) {
-        const naam = interaction.options.getString('naam').toLowerCase();
+        const naam = interaction.options.getString('naam').toLowerCase().charAt(0).toUpperCase() + interaction.options.getString('naam').slice(1);
         const klas = interaction.options.getString('klas').toUpperCase();
         const leerlingnummer = interaction.options.getInteger('leerling');
         const email = `${leerlingnummer}@student.glu.nl`;
