@@ -24,7 +24,7 @@ Meld even aan welk command je werkt in de discord.
 | 24 Maart |  |  |  |
 
 **Wat houd het allemaal in:**
-- Leerlingnummer koppelen: Een command zodat je je leerlingnummer kan koppelen aan je discord account, dit maakt het makkelijker om jouw rooster te vinden en de andere functionaliteiten van de bot waar je leerlingnummer nodig is te gebruiken.
-- Leerling profiel command: Een command om je eigen leerling profiel te kunnen bekijken (met gegevens zoals: leerling nummer, klas en school mail).
-- Command opdracht plaatsen: Een command om een opdracht aan te kunnen maken in de bot. Je kan de titel van opdracht opgeven, de deadline en of het een harde deadline is of niet.
-- Klas toevoegen command & klas selecteren: Een command om een klas toe te voegen aan de bot zodat deze geselecteerd kan worden als leerling. Deze klassen komen in een dropdown terecht waar de leerlingen hun klas kunnen selecteren.
+- Leerlingnummer koppelen: Een command zodat je je leerlingnummer kan koppelen aan je discord account, dit maakt het makkelijker om jouw rooster te vinden en de andere functionaliteiten van de bot waar je leerlingnummer nodig is te gebruiken. (2 uur)
+- Leerling profiel command: Een command om je eigen leerling profiel te kunnen bekijken (met gegevens zoals: leerling nummer, klas en school mail). (2 uur)
+- Command opdracht plaatsen: Een command om een opdracht aan te kunnen maken in de bot. Je kan de titel van opdracht opgeven, de deadline en of het een harde deadline is of niet. (2 dagen)
+- Klas toevoegen command & klas selecteren: Een command om een klas toe te voegen aan de bot zodat deze geselecteerd kan worden als leerling. Deze klassen komen in een dropdown terecht waar de leerlingen hun klas kunnen selecteren. (3 dagen)
