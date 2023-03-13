@@ -45,7 +45,28 @@ module.exports = {
                         .setColor('Yellow')
                         .setDescription('Selecteer hier onderaan alstjeblieft je klas.');
         
+        const resMsg = fs.readFileSync('./db/component-msg.json');
+        const objMsg = JSON.parse(resMsg);
+
+        if (!objMsg.hasOwnProperty(interaction.guild.id)) {
+            objMsg[interaction.guild.id] = {}
+        }
+
+        if (objMsg[interaction.guild.id].hasOwnProperty('classDropdown')) {
+            return await interaction.reply({ content: "Deze server heeft al een klassen dropdwon menu!", ephemeral: true });
+        }
+        
         const klasMessage = await channel.send({ embeds: [klasSelectEmbed], components: [klasSelect] });
+
+        objMsg[interaction.guild.id].classDropdown = klasMessage.id;
+
+        try {
+            fs.writeFileSync('./db/component-msg.json', JSON.stringify(objMsg, null, 4));
+        } catch(err) {
+            console.log(err);
+            return await interaction.reply({ content: 'Er is een fout opgetreden!\nProbeer het later nog eens!', ephemeral: true });
+        }
+
         await interaction.reply({ content: `Succesvol het bericht aangemaakt!\nHier is het bericht: ${klasMessage.url}`, ephemeral: true });
     }
 }

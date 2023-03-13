@@ -29,15 +29,15 @@ module.exports = {
 
         obj.klassen[interaction.guild.id].push(newEntry);
 
-        try {
-            fs.writeFileSync('./db/klassen.json', JSON.stringify(obj, null, 4));
-        } catch(err) {
-            console.log(err);
-            return await interaction.reply({ content: 'Er is iets fout gegaan!\nProbeer het later nog eens!', ephemeral: true });
-        }
+        // try {
+        //     fs.writeFileSync('./db/klassen.json', JSON.stringify(obj, null, 4));
+        // } catch(err) {
+        //     console.log(err);
+        //     return await interaction.reply({ content: 'Er is iets fout gegaan!\nProbeer het later nog eens!', ephemeral: true });
+        // }
 
-        const dropdown = interaction.message.components.find(c => c.type == "SELECT_MENU" && c.customId == "klassen");
-        console.log(dropdown);
+        const resComp = fs.readFileSync('./db/component-msg.json');
+        const dropdownMessageId = JSON.parse(resComp)[interaction.guild.id].classDropdown;
 
         await interaction.reply('Pong');
     }
