@@ -29,16 +29,24 @@ module.exports = {
 
         obj.klassen[interaction.guild.id].push(newEntry);
 
-        // try {
-        //     fs.writeFileSync('./db/klassen.json', JSON.stringify(obj, null, 4));
-        // } catch(err) {
-        //     console.log(err);
-        //     return await interaction.reply({ content: 'Er is iets fout gegaan!\nProbeer het later nog eens!', ephemeral: true });
-        // }
+        try {
+            fs.writeFileSync('./db/klassen.json', JSON.stringify(obj, null, 4));
+        } catch(err) {
+            console.log(err);
+            return await interaction.reply({ content: 'Er is iets fout gegaan!\nProbeer het later nog eens!', ephemeral: true });
+        }
 
-        const resComp = fs.readFileSync('./db/component-msg.json');
-        const dropdownMessageId = JSON.parse(resComp)[interaction.guild.id].classDropdown;
+        // const resComp = JSON.parse(fs.readFileSync('./db/component-msg.json'));
+        // const channelID = resComp.componentMsg[interaction.guild.id].classDropdown.channelID;
+        // const messageID = resComp.componentMsg[interaction.guild.id].classDropdown.messageID;
 
-        await interaction.reply('Pong');
+        // const channel = await interaction.guild.channels.fetch(channelID);
+        // const message = await channel.messages.fetch(messageID); 
+
+        // const addClass = [
+        //     { label: className, value: className }
+        // ];
+
+        await interaction.reply('Message found!');
     }
 }
