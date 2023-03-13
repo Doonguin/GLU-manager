@@ -10,7 +10,7 @@ require('dotenv').config();
 const client = new Client({ 
     intents: [
         GatewayIntentBits.MessageContent, 
-        GatewayIntentBits.GuildMessages 
+        GatewayIntentBits.GuildMessages
     ]
 });
 
@@ -57,6 +57,12 @@ client.on(Events.InteractionCreate, async interaction => {
 client.once(Events.ClientReady, c => {
     console.log(`Logged in as: ${c.user.tag}`);
 });
+
+// Receive interactions
+client.on(Events.InteractionCreate, interaction => {
+	if (!interaction.isStringSelectMenu()) return;
+	console.log(interaction);
+})
 
 // Login
 client.login(process.env.TOKEN);
