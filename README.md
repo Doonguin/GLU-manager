@@ -17,11 +17,11 @@ Meld even aan welk command je werkt in de discord.
 | 7 Maart | Leerlingnummer koppelen | Week rooster command | Vakantie command |
 | 10 Maart | Leerling Profiel command | Week rooster command | Vakantie command |
 | 13 Maart | Command opdracht plaatsen | Week rooster command | Notion command |
-| 14 Maart | Command opdracht plaatsen | notion command |  vakantie command |
-| 17 Maart | Klas toevoegen command & klas selecteren | notion command |  |
-| 20 Maart | Klas toevoegen command & klas selecteren | dag rooster command |  |
-| 21 Maart | Klas toevoegen command & klas selecteren | dag rooster command |  |
-| 24 Maart | Klas toevoegen command & klas selecteren | rooster command finish met api |  |
+| 14 Maart | Command opdracht plaatsen | notion command |  Vakantie command |
+| 17 Maart | Klas toevoegen command & klas selecteren | notion command | Vakantie command |
+| 20 Maart | Klas toevoegen command & klas selecteren | dag rooster command | Gemiddeld cijfer command |
+| 21 Maart | Klas toevoegen command & klas selecteren | dag rooster command | Gemiddeld cijfer command |
+| 24 Maart | Klas toevoegen command & klas selecteren | rooster command finish met api | Gemiddeld cijfer command |
 
 **Wat houd het allemaal in:**
 - Leerlingnummer koppelen: Een command zodat je je leerlingnummer kan koppelen aan je discord account, dit maakt het makkelijker om jouw rooster te vinden en de andere functionaliteiten van de bot waar je leerlingnummer nodig is te gebruiken. (2 uur)
