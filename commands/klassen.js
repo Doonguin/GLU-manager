@@ -16,6 +16,12 @@ module.exports = {
     async execute(interaction) {
         const channel = interaction.options.getChannel('kanaal');
 
+        const classCheck = JSON.parse(fs.readFileSync('./db/klassen.json'));
+
+        if (!classCheck.klassen.hasOwnProperty(interaction.guild.id)) {
+            return await interaction.reply({ content: 'Maak eerst een aantal klassen aan met het command "/klas-toevoegen" om dit command te laten werken!', ephemeral: true });
+        }
+
         if (channel.parentId == null) {
             return await interaction.reply({ content: 'Dit is een kanaal categorie.\nSelecteer een geldig tekst kanaal alstublieft!', ephemeral: true });
         }
@@ -47,50 +53,32 @@ module.exports = {
             return await interaction.reply({ content: "Deze server heeft al een klassen dropdown menu!", ephemeral: true });
         }
 
-        if (obj.length > -1) {
-            const klassen = obj.map(klas => ({
-                label: klas.name,
-                value: klas.value
-            }));
+        const klassen = obj[interaction.guild.id].map(klas => ({
+            label: klas.name,
+            value: klas.value
+        }));
 
-            klasSelect.addComponents(
-                new StringSelectMenuBuilder()
-                    .setCustomId('klassen')
-                    .setPlaceholder('Selecteer je klas')
-                    .addOptions(...klassen)
-            );
+        klasSelect.addComponents(
+            new StringSelectMenuBuilder()
+                .setCustomId('klassen')
+                .setPlaceholder('Selecteer je klas')
+                .addOptions(...klassen)
+        );
             
-            const klasMessage = await channel.send({ embeds: [klasSelectEmbed], components: [klasSelect] });
+        const klasMessage = await channel.send({ embeds: [klasSelectEmbed], components: [klasSelect] });
 
-            objMsg.componentMsg[interaction.guild.id].classDropdown = {
-                "messageID": klasMessage.id, 
-                "channelID": channel.id 
-            };
+        objMsg.componentMsg[interaction.guild.id].classDropdown = {
+            "messageID": klasMessage.id, 
+            "channelID": channel.id 
+        };
 
-            try {
-                fs.writeFileSync('./db/component-msg.json', JSON.stringify(objMsg, null, 4));
-            } catch(err) {
-                console.log(err);
-                return await interaction.reply({ content: 'Er is een fout opgetreden!\nProbeer het later nog eens!', ephemeral: true });
-            }
-
-            await interaction.reply({ content: `Succesvol het bericht aangemaakt!\nHier is het bericht: ${klasMessage.url}`, ephemeral: true });
-        } else {
-            const klasMessage = await channel.send({ embeds: [klasSelectEmbed] });
-
-            objMsg.componentMsg[interaction.guild.id].classDropdown = {
-                "messageID": klasMessage.id, 
-                "channelID": channel.id 
-            };
-
-            try {
-                fs.writeFileSync('./db/component-msg.json', JSON.stringify(objMsg, null, 4));
-            } catch(err) {
-                console.log(err);
-                return await interaction.reply({ content: 'Er is een fout opgetreden!\nProbeer het later nog eens!', ephemeral: true });
-            }
-
-            await interaction.reply({ content: `Succesvol het bericht aangemaakt!\nHier is het bericht: ${klasMessage.url}`, ephemeral: true });
+        try {
+            fs.writeFileSync('./db/component-msg.json', JSON.stringify(objMsg, null, 4));
+        } catch(err) {
+            console.log(err);
+            return await interaction.reply({ content: 'Er is een fout opgetreden!\nProbeer het later nog eens!', ephemeral: true });
         }
+
+        await interaction.reply({ content: `Succesvol het bericht aangemaakt!\nHier is het bericht: ${klasMessage.url}`, ephemeral: true });
     }
 }
