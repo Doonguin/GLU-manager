@@ -2,10 +2,7 @@
 const { SlashCommandBuilder } = require("discord.js");
 
 // Build slash command
-const bureau =
-  "https://www.notion.so/het-bureau/Het-BUREAU-1b3b8358bc184ac29e93dcdaf5823369";
-const webdev =
-  "https://gluwebdev.notion.site/Module-17-NodeJs-13b46f243799434daec96ad8acedf23a";
+
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("notion")
@@ -17,6 +14,20 @@ module.exports = {
       subcommand.setName("webdev").setDescription("de notion of webdev")
     ),
   async execute(interaction) {
-    await interaction.reply(notion);
+    switch (interaction.options.getSubCommand()) {
+      case "bureau": {
+        const notion =
+          "https://www.notion.so/het-bureau/Het-BUREAU-1b3b8358bc184ac29e93dcdaf5823369";
+
+        interaction.reply({ content: notion });
+        break;
+      }
+      case "webdev": {
+        const notion =
+          "https://www.notion.so/het-bureau/Het-BUREAU-1b3b8358bc184ac29e93dcdaf5823369";
+        interaction.reply({ content: notion });
+        break;
+      }
+    }
   },
 };
