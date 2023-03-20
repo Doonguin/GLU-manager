@@ -28,3 +28,9 @@ Meld even aan welk command je werkt in de discord.
 - Leerling profiel command: Een command om je eigen leerling profiel te kunnen bekijken (met gegevens zoals: leerling nummer, klas en school mail). (2 uur)
 - Command opdracht plaatsen: Een command om een opdracht aan te kunnen maken in de bot. Je kan de titel van opdracht opgeven, de deadline en of het een harde deadline is of niet. (2 dagen)
 - Klas toevoegen command & klas selecteren: Een command om een klas toe te voegen aan de bot zodat deze geselecteerd kan worden als leerling. Deze klassen komen in een dropdown terecht waar de leerlingen hun klas kunnen selecteren. (4 dagen)
+
+## Memes van de /meme command
+
+![image](https://user-images.githubusercontent.com/90307071/226285865-cbe61794-6e62-4137-82b9-6746ac23b50d.png)
+![image](https://user-images.githubusercontent.com/90307071/226285918-4ceb46f2-03e4-4814-8a4d-f2489a951c4d.png)
+![image](https://user-images.githubusercontent.com/90307071/226285972-c5cf49f8-1087-48c9-9261-747105613f29.png)
