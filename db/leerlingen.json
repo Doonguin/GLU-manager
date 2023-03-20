@@ -1,0 +1,24 @@
+
+{
+    "leerlingen": {
+        "494894709479571466": {
+            "name": "Tygo van zon",
+            "class": "2WDV1",
+            "llnr": 210722,
+            "email": "210722@student.glu.nl"
+        },
+        "565241309196058624": {
+            "name": "CAS",
+            "class": "2WDV1",
+            "llnr": 210587,
+            "email": "210587@student.glu.nl"
+        },
+        "392334969684492299": {
+            "name": "Sylvie",
+            "class": "1WDV1",
+            "llnr": 220722,
+            "email": "220722@student.glu.nl"
+        }
+    }
+}
+
