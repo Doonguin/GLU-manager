@@ -1,22 +1,39 @@
 // Import libraries
 const { SlashCommandBuilder } = require('discord.js');
-
-// Meme images
-const imageUrls = [
-    'https://user-images.githubusercontent.com/90307071/226285865-cbe61794-6e62-4137-82b9-6746ac23b50d.png',
-    'https://user-images.githubusercontent.com/90307071/226285918-4ceb46f2-03e4-4814-8a4d-f2489a951c4d.png',
-    'https://user-images.githubusercontent.com/90307071/226285972-c5cf49f8-1087-48c9-9261-747105613f29.png',
-];
+const axios = require('axios');
 
 // Build slash command
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('meme')
-        .setDescription('Reageert met een GLU meme'),
+        .setDescription('Maak een meme met Imgflip')
+        .addStringOption(option =>
+            option.setName('template')
+                .setDescription('The ID van den Imgflip meme template')
+                .setRequired(true))
+        .addStringOption(option =>
+            option.setName('toptext')
+                .setDescription('De tekst boven aan de meme')
+                .setRequired(true))
+        .addStringOption(option =>
+            option.setName('bottomtext')
+                .setDescription('De tekst onder aan de meme')
+                .setRequired(true)),
 
     async execute(interaction) {
-        const randomIndex = Math.floor(Math.random() * imageUrls.length);
-        const randomImageUrl = imageUrls[randomIndex];  
-        await interaction.reply({ files: [randomImageUrl] });
+        const username = 'mexicogamer492';
+        const password = 'waaromleesjedit';
+        const templateId = interaction.options.getString('template');
+        const toptext = interaction.options.getString('toptext');
+        const bottomtext = interaction.options.getString('bottomtext');
+        const apiUrl = `https://api.imgflip.com/caption_image?template_id=${templateId}&username=${username}&password=${password}&text0=${toptext}&text1=${bottomtext}`;
+        try {
+            const response = await axios.post(apiUrl);
+            const imageUrl = response.data.data.url;
+            await interaction.reply({ files: [imageUrl] });
+        } catch (error) {
+            console.error(error);
+            await interaction.reply('Oepsie Poepsie, er ging iets mis! owo');
+        }
     }
 }
