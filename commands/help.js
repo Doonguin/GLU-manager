@@ -20,6 +20,10 @@ const embet = {
       name: `/vakantie`,
       value: `Hoeveel dagen tot de volgende vakantie zijn er nog?`,
     },
+    {
+      name: `/poll`,
+      value: `creer een poll`,
+    },
   ],
   image: {
     url: `https://cdn.discordapp.com/attachments/1074680009417044072/1082683238079795320/index.png`,
