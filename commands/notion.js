@@ -2,8 +2,10 @@
 const { SlashCommandBuilder } = require("discord.js");
 
 // Build slash command
-const bureauURL = "https://www.notion.so/het-bureau/Het-BUREAU-1b3b8358bc184ac29e93dcdaf5823369";
-const webdevURL = "https://gluwebdev.notion.site/gluwebdev/Leerjaar-2022-2023-a285e26687dc48a88446842ca5da6a06";
+const bureauURL =
+  "https://www.notion.so/het-bureau/Het-BUREAU-1b3b8358bc184ac29e93dcdaf5823369";
+const webdevURL =
+  "https://gluwebdev.notion.site/gluwebdev/Leerjaar-2022-2023-a285e26687dc48a88446842ca5da6a06";
 
 module.exports = {
   data: new SlashCommandBuilder()
